@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+{%load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Project</title>
+  <link rel="stylesheet" href="{% static '/css/blog.css' %}">
+  </head>
+  <body>
+    <h1>Here is your page</h1>
+    <h2>Hear is you Access records</h2>
+    <div class="django">
+      {% if access_rec %}
+      <table>
+        <thead class="raj">
+          <th>SiteNmae</th>
+          <th>Date accessed</th>
+        </thead>
+        <tbody>
+
+
+          {% for acc in access_rec %}
+          <tr>
+            <td>{{acc.name}}</td>
+              <td>{{acc.date}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>No AccessRecord found</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
